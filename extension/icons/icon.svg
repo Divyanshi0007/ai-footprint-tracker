@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="24" fill="#111827"/>
+  <!-- leaf / eco symbol -->
+  <path d="M64 20 C64 20 24 40 24 72 C24 96 44 108 64 108 C84 108 104 96 104 72 C104 40 64 20 64 20Z"
+        fill="#065f46" opacity="0.85"/>
+  <path d="M64 108 C64 108 64 60 40 44"
+        stroke="#6ee7b7" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- small chart bars indicating tracking -->
+  <rect x="48" y="72" width="8"  height="20" rx="2" fill="#6ee7b7" opacity="0.9"/>
+  <rect x="60" y="62" width="8"  height="30" rx="2" fill="#34d399" opacity="0.9"/>
+  <rect x="72" y="67" width="8"  height="25" rx="2" fill="#6ee7b7" opacity="0.9"/>
+</svg>

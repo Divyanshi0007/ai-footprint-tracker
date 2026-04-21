@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AI Footprint Tracker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-row">
+      <span class="logo">&#127807;</span>
+      <h1>AI Footprint Tracker</h1>
+    </div>
+    <p class="subtitle">Heuristic estimates &mdash; not exact billing data</p>
+  </header>
+
+  <!-- Animated loader: shown while AI is streaming a response -->
+  <div class="stream-indicator" id="stream-indicator" hidden>
+    <div class="spinner-ring">
+      <svg viewBox="0 0 36 36" class="circle-svg">
+        <circle class="circle-track" cx="18" cy="18" r="15"/>
+        <circle class="circle-fill"  cx="18" cy="18" r="15"/>
+      </svg>
+    </div>
+    <div class="stream-text">
+      <span class="stream-title">Generating response</span>
+      <span class="stream-platform" id="stream-platform"></span>
+    </div>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="total"   role="tab">Total</button>
+    <button class="tab"        data-tab="chatgpt" role="tab">ChatGPT</button>
+    <button class="tab"        data-tab="claude"  role="tab">Claude</button>
+    <button class="tab"        data-tab="gemini"  role="tab">Gemini</button>
+  </nav>
+
+  <section class="stats" id="stats" role="tabpanel">
+    <p class="loading">Loading&hellip;</p>
+  </section>
+
+  <footer class="actions">
+    <button id="reset-btn">Reset Stats</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 320px;
+  min-height: 280px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  background: #111827;
+  color: #e5e7eb;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+.header { padding: 14px 16px 10px; border-bottom: 1px solid #1f2937; }
+.header-row { display: flex; align-items: center; gap: 8px; }
+.logo { font-size: 18px; }
+h1 { font-size: 14px; font-weight: 700; color: #6ee7b7; letter-spacing: 0.01em; }
+.subtitle { font-size: 10px; color: #6b7280; margin-top: 3px; }
+
+/* ── Animated circle loader ───────────────────────────────────────────────── */
+.stream-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #0b1f15;
+  border-bottom: 1px solid #064e3b;
+}
+.stream-indicator[hidden] { display: none; }
+
+/* SVG circle spinner */
+.spinner-ring {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.circle-svg {
+  width: 32px;
+  height: 32px;
+  transform: rotate(-90deg); /* start arc from top */
+  animation: rotate-ring 1.8s linear infinite;
+}
+
+@keyframes rotate-ring {
+  to { transform: rotate(270deg); }
+}
+
+.circle-track {
+  fill: none;
+  stroke: #064e3b;
+  stroke-width: 3;
+}
+
+.circle-fill {
+  fill: none;
+  stroke: #6ee7b7;
+  stroke-width: 3;
+  stroke-linecap: round;
+  /* circumference of r=15 circle ≈ 94.25 */
+  stroke-dasharray: 94.25;
+  stroke-dashoffset: 94.25;
+  animation: arc-fill 1.8s ease-in-out infinite;
+}
+
+@keyframes arc-fill {
+  0%   { stroke-dashoffset: 94.25; opacity: 1; }
+  50%  { stroke-dashoffset: 20;    opacity: 1; }
+  100% { stroke-dashoffset: 94.25; opacity: 0.4; }
+}
+
+.stream-text { display: flex; flex-direction: column; gap: 2px; }
+.stream-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6ee7b7;
+}
+.stream-platform {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────────────────────── */
+.tabs { display: flex; border-bottom: 1px solid #1f2937; background: #0f172a; }
+.tab {
+  flex: 1; padding: 8px 2px;
+  background: none; border: none;
+  border-bottom: 2px solid transparent;
+  color: #6b7280; font-size: 11px; font-weight: 500;
+  cursor: pointer; transition: color 0.15s, border-color 0.15s;
+}
+.tab:hover  { color: #d1fae5; }
+.tab.active { color: #6ee7b7; border-bottom-color: #6ee7b7; }
+
+/* ── Stats panel ──────────────────────────────────────────────────────────── */
+.stats { padding: 4px 0 8px; min-height: 160px; }
+.loading, .empty {
+  text-align: center; color: #4b5563;
+  padding: 40px 16px; font-size: 12px; line-height: 1.6;
+}
+
+.stat-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 9px 16px;
+  border-bottom: 1px solid #1f293744;
+}
+.stat-row:last-child { border-bottom: none; }
+
+.stat-label { display: flex; align-items: center; gap: 7px; color: #9ca3af; font-size: 12px; }
+.stat-icon  { font-size: 15px; line-height: 1; }
+.stat-right { text-align: right; }
+.stat-value { font-size: 14px; font-weight: 600; color: #f3f4f6; }
+.stat-sub   { font-size: 10px; color: #6b7280; margin-top: 1px; }
+
+/* Flash on new data */
+@keyframes flash-green {
+  0%   { background: #064e3b55; }
+  100% { background: transparent; }
+}
+.stats.flash { animation: flash-green 0.6s ease-out; }
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+.actions { padding: 10px 16px; border-top: 1px solid #1f2937; }
+#reset-btn {
+  width: 100%; padding: 7px 12px;
+  background: #1f2937; border: 1px solid #374151; border-radius: 5px;
+  color: #9ca3af; font-size: 12px; cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+#reset-btn:hover { background: #374151; color: #f3f4f6; }
